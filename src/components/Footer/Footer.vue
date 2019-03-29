@@ -1,29 +1,37 @@
 <template>
     <div class="footer">
-    <span class="guide_item" :class="{on: '/msite'===$route.path}" @click="goTo('/msite')">
+
+        <router-link to="/home" class="guide_item" :class="{on:'/home'== this.$route.path}">
       <span class="item_icon">
         <i class="iconfont icon-shouye"></i>
       </span>
       <span>首页</span>
-    </span>
-        <a href="javascript:;" class="guide_item" ">
+        </router-link>
+
+        <router-link to="/search" class="guide_item" :class="{on:'/search'== this.$route.path}">
       <span class="item_icon">
         <i class="iconfont icon-search"></i>
       </span>
             <span>搜索</span>
-        </a>
-        <a href="javascript:;" class="guide_item" ">
+        </router-link>
+
+        <router-link  to="/order" class="guide_item" :class="{on:'/order'== this.$route.path}">
       <span class="item_icon">
         <i class="iconfont icon-dingdan"></i>
       </span>
             <span>订单</span>
-        </a>
-        <a href="javascript:;" class="guide_item" >
+        </router-link>
+
+        <router-link  to="/profile" class="guide_item" :class="{on:'/profile'== this.$route.path}">
+
       <span class="item_icon">
         <i class="iconfont icon-geren"></i>
       </span>
             <span>我的</span>
-        </a>
+
+        </router-link>
+
+
     </div>
 </template>
 
@@ -40,7 +48,7 @@
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
     .footer  //footer
-        top-border-1px(#e4e4e4)
+        border-top  solid 1px #eaeaea
         position fixed
         z-index 100
         left 0
@@ -66,4 +74,5 @@
                 margin-bottom 2px
                 .iconfont
                     font-size 22px
+
 </style>
