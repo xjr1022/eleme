@@ -37,11 +37,15 @@
     width: 100%
     height 45px
     .header-title
+        font-size 1.2em
         color white
         text-align center
-        margin-top 0.8em
+        margin-top 0.7em
         width 100px
     .right
+        text-align right
+        padding-right 10px
+        margin-top 0.8em
         width 100px
     .left
         width 100px

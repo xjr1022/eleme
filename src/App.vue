@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div  >
         <router-view></router-view>
         <Footer></Footer>
     </div>
@@ -16,6 +16,6 @@
     }
 </script>
 
-<style >
+<style lang="stylus" >
 
 </style>

@@ -1,12 +1,38 @@
 <template>
     <div>
-
+            <!--顶栏-->
             <HeaderTop title="首页">
                 <span slot="left" class="header-search">
                                    <i class="iconfont icon-sousuo" ></i>
                 </span>
-
+                <span slot="right" class="header-login">
+                        登陆
+                </span>
             </HeaderTop>
+        <!--导航-->
+        <nav class="home-nav">
+            <div class="swiper-container">
+            <swiper :options="swiperOption" ref="mySwiper" >
+                <!-- slides -->
+                <swiper-slide class="swiper1">
+                    <div class="swiper-item">dasd</div>
+                    <div class="swiper-item">dasd</div>
+                    <div class="swiper-item">dasd</div>
+                    <div class="swiper-item">dasd</div>
+                    <div class="swiper-item">dasd</div>
+                    <div class="swiper-item">dasd</div>
+                    <div class="swiper-item">dasd</div>
+
+                </swiper-slide>
+                <swiper-slide class="swiper2">
+
+                </swiper-slide>
+
+                <!-- Optional controls -->
+                <div class="swiper-pagination"  slot="pagination"></div>
+            </swiper>
+            </div>
+        </nav>
     </div>
 </template>
 
@@ -16,19 +42,63 @@
 *创建时间: 2019/3/27 20:58
 */
     import HeaderTop from '../../components/HeaderTop/HearderTop'
+    import 'swiper/dist/css/swiper.css'
+    import {swiper,swiperSlide} from 'vue-awesome-swiper'
+
     export default {
         name: "Home",
         components:{
-            HeaderTop
+            HeaderTop,
+            swiper,
+            swiperSlide
+        },
+        data() {
+            return {
+                swiperOption: {
+                    height:200,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        bulletActiveClass: 'pagination-bullet-active',
+                    },
+                }
+            }
+        },
+        computed: {
+
         }
     }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="stylus" rel="stylesheet/stylus" >
 .header-search
-
+    position absolute
+    padding-top 0.6em
     .icon-sousuo
-        padding-top 20px
-        font-size 25px
+        padding-left 10px
+        font-size 1.6em
         color #fff
+
+.header-login
+    width 100%
+    text-align center
+    color #fff
+    font-size 1.2em
+
+nav
+    width 100%
+    height 200px
+    background-color white
+    .swiper-container
+        height 100%
+
+
+.pagination-bullet-active
+    opacity 1
+    background-color lightgreen
+.swiper1
+    display flex
+    flex-wrap wrap
+    .swiper-item
+        width 20%
+        height 50%
 </style>
