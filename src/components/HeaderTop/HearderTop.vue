@@ -27,7 +27,7 @@
 
 <style lang="stylus" scoped>
 .header
-    background-color #02a774
+    background-color #FED06A
     display  flex
     justify-content space-between
     flex-wrap nowrap
@@ -38,7 +38,7 @@
     height 45px
     .header-title
         font-size 1.2em
-        color white
+        color #3e3e3e
         text-align center
         margin-top 0.7em
         width 100px

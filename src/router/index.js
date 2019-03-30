@@ -5,6 +5,7 @@ import Order from '../pages/Order/Order'
 import Home from '../pages/Home/Home'
 import Profile from '../pages/Profile/Profile'
 import Search from '../pages/Search/Search'
+import Login from '../pages/Login/Login'
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -28,6 +29,10 @@ export default new VueRouter({
         {
             path:'/',
             redirect:'/home'
+        },
+        {
+            path:'/login',
+            component:Login
         },
     ]
 })

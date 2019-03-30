@@ -10,7 +10,7 @@
 
         <router-link to="/search" class="guide_item" :class="{on:'/search'== this.$route.path}">
       <span class="item_icon">
-        <i class="iconfont icon-search"></i>
+        <i class="iconfont icon-sousuo"></i>
       </span>
             <span>搜索</span>
         </router-link>
@@ -25,7 +25,7 @@
         <router-link  to="/profile" class="guide_item" :class="{on:'/profile'== this.$route.path}">
 
       <span class="item_icon">
-        <i class="iconfont icon-geren"></i>
+        <i class="iconfont icon-zhu"></i>
       </span>
             <span>我的</span>
 
@@ -67,12 +67,12 @@
             margin 5px
             color #999999
             &.on
-                color #02a774
+                color #FED06A
             span
                 font-size 12px
                 margin-top 2px
                 margin-bottom 2px
                 .iconfont
-                    font-size 22px
+                    font-size 1.8em
 
 </style>

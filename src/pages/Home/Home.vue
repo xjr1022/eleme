@@ -15,17 +15,35 @@
             <swiper :options="swiperOption" ref="mySwiper" >
                 <!-- slides -->
                 <swiper-slide class="swiper1">
-                    <div class="swiper-item">dasd</div>
-                    <div class="swiper-item">dasd</div>
-                    <div class="swiper-item">dasd</div>
-                    <div class="swiper-item">dasd</div>
-                    <div class="swiper-item">dasd</div>
-                    <div class="swiper-item">dasd</div>
-                    <div class="swiper-item">dasd</div>
+
+                    <div class="swiper-item">
+                        <div>
+                            <img src="./images/nav/1.jpg" alt="">
+                        </div>
+                            <span>特价早餐</span>
+                    </div>
+
 
                 </swiper-slide>
                 <swiper-slide class="swiper2">
-
+                    <div class="swiper-item">
+                        <div>
+                            <img src="./images/nav/1.jpg" alt="">
+                        </div>
+                        <span>特价早餐</span>
+                    </div>
+                    <div class="swiper-item">
+                        <div>
+                            <img src="./images/nav/1.jpg" alt="">
+                        </div>
+                        <span>特价早餐</span>
+                    </div>
+                    <div class="swiper-item">
+                        <div>
+                            <img src="./images/nav/1.jpg" alt="">
+                        </div>
+                        <span>特价早餐</span>
+                    </div>
                 </swiper-slide>
 
                 <!-- Optional controls -->
@@ -76,12 +94,12 @@
     .icon-sousuo
         padding-left 10px
         font-size 1.6em
-        color #fff
+        color #3e3e3e
 
 .header-login
     width 100%
     text-align center
-    color #fff
+    color #3e3e3e
     font-size 1.2em
 
 nav
@@ -94,11 +112,18 @@ nav
 
 .pagination-bullet-active
     opacity 1
-    background-color lightgreen
-.swiper1
+    background-color rgb(254,208,106)
+.swiper1,.swiper2
     display flex
     flex-wrap wrap
     .swiper-item
-        width 20%
+        width 25%
         height 50%
+        text-align center
+        color #666666
+        img
+            width 50px
+            height 50px
+        span
+            font-size 0.7em
 </style>
