@@ -12,19 +12,31 @@ export default new VueRouter({
     routes: [
         {
             path:'/home',
-            component:Home
+            component:Home,
+            meta:{
+                FooterBar:true
+            }
         },
         {
             path:'/order',
-            component:Order
+            component:Order,
+            meta:{
+                FooterBar:true
+            }
         },
         {
             path:'/profile',
-            component:Profile
+            component:Profile,
+            meta:{
+                    FooterBar:true
+            }
         },
         {
             path:'/search',
-            component:Search
+            component:Search,
+            meta:{
+                FooterBar:true
+            }
         },
         {
             path:'/',

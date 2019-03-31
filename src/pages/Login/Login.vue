@@ -1,6 +1,10 @@
 <template>
-    <div>
-
+    <div class="login">
+        <div class="login-header">
+            <div class="login-back">
+                <i class="iconfont icon-jiantou"></i>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -16,5 +20,15 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-
+.login
+    background-color white
+    width 100%
+    height 100%
+    .login-header
+        width 100%
+        height 50px
+        .login-back
+            .iconfont
+                font-size 2em
+                color gray
 </style>

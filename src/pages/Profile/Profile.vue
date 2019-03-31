@@ -4,6 +4,7 @@
     <HeaderTop title="我的">
     </HeaderTop>
 <!--        个人信息-->
+        <router-link to="/login">
         <section class="profile-link">
             <div class="my-profile">
                     <i class="iconfont icon-person"></i>
@@ -13,6 +14,7 @@
                 <p class="my-detail">个人信息</p>
             </div>
         </section>
+        </router-link>
 <!--个人模块-->
         <section class="my-section">
             <div class="section-item">
@@ -59,7 +61,9 @@
 
 <!--        我的-->
         <section class="my-list">
-            
+            <MyList title="我的资产" :Listarr="listArr"></MyList>
+            <MyList title="我的服务"></MyList>
+            <MyList title="更多推荐"></MyList>
         </section>
     </div>
 </template>
@@ -70,10 +74,43 @@
 *创建时间: 2019/3/27 20:59
 */
     import HeaderTop from '../../components/HeaderTop/HearderTop'
+    import MyList from '../../components/MyList/MyList'
     export default {
         name: "Profile",
+        data(){
+          return {
+              listArr:[
+                  {
+                      icon:"icon-packet",
+                      name:'代金券',
+                      detail:'7个未使用'
+                  },
+                  {
+                      icon:"icon-packet",
+                      name:'代金券',
+                      detail:'7个未使用'
+                  },
+                  {
+                      icon:"icon-packet",
+                      name:'代金券',
+                      detail:'7个未使用'
+                  },
+                  {
+                      icon:"icon-packet",
+                      name:'代金券',
+                      detail:'7个未使用'
+                  },
+                  {
+                      icon:"icon-packet",
+                      name:'代金券',
+                      detail:'7个未使用'
+                  },
+              ]
+          }
+        },
         components:{
-            HeaderTop
+            HeaderTop,
+            MyList
         }
     }
 </script>
@@ -81,6 +118,7 @@
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 .profile
     overflow hidden
+    margin-bottom 50px
     .profile-link
         width 100%
         height 70px
@@ -106,7 +144,7 @@
             margin-left 20px
             color #3e3e3e
             .my-name
-                margin-top 7px
+                margin-top 10px
                 font-size 1.1em
             .my-detail
                 margin-top 7px
