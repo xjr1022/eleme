@@ -2,7 +2,7 @@
     <div class="login">
 
         <div class="login-header">
-            <div class="login-back">
+            <div class="login-back" @click="goBack">
                 <i class="iconfont icon-jiantou"></i>
             </div>
         </div>
@@ -13,21 +13,30 @@
 
         <section class="user-login">
             <div class="login-select">
-                <div class="select-left">
-                    <span>短信登录</span>
+                <div class="select-left" :class="[loginMethod ? swithCss : '']" @click="loginSwith">
+                  短信登录
                 </div>
-                <div class="select-right">
-                    <span>密码登录</span>
+                <div class="select-right" :class="[!loginMethod ? swithCss : '']" @click="loginSwith">
+               密码登录
                 </div>
             </div>
-            <div class="message-login">
-                <input class="login-phone" type="text"  placeholder="手机号" />
-                <el-button plain :disabled="isShow" @click="btnClick">{{btnText}}</el-button>
+            <div v-if="loginMethod" class="login-div" >
+                <input class="login-input" type="text"  placeholder="手机号" />
+                <div class="login-mes-btn" @click="btnClick">{{btnText}}</div>
+                <input class="login-input mes-num" type="text"  placeholder="验证码" />
             </div>
-            <div class="pwd-login">
 
+            <div v-else="!loginMethod" class="login-div" >
+                <input class="login-input" type="text"  placeholder="手机号" />
+                <input class="login-input mes-num" type="text"  placeholder="密码" />
             </div>
+
+            <div class="login-btn-div">
+                <span class="login-btn" >登录</span>
+            </div>
+
         </section>
+
 
     </div>
 </template>
@@ -43,26 +52,33 @@
         data(){
           return {
               isShow:false,
-              btnText:"默认按钮"
+              btnText:"获取验证码",
+              loginMethod:true,
+              swithCss:'login-switch'
           }
         },
         methods:{
             btnClick(){
-                console.log(123);
+                let time = 59;
                 this.isShow = true;
-                let time = 60;
-
+                this.btnText = `在${time}秒重试`;
                 let set = setInterval(()=>{
                     time--;
                    this.btnText = `在${time}秒重试`;
                 }, 1000);
-
-                setTimeout(function(){
+                setTimeout(()=>{
                     this.btnText='重新发送';
                     this.isShow = false;
                     clearInterval(set);
-                }, 60000);
+                }, 59000);
+            },
 
+            loginSwith(){
+                this.loginMethod = !this.loginMethod
+            },
+
+            goBack(){
+                this.$router.go(-1)
             }
 
         },
@@ -101,32 +117,51 @@
             font-size 14px
             .select-left
                 margin-right 10%
+
+            .login-switch
                 border-bottom solid 2px #FED06A
-                span
-                    display inline-block
-                    padding-bottom 10px
-                    font-weight 700
-                    color #FED06A
-            .select-focus
                 font-weight 700
+                color #FED06A
+                padding-bottom 10px
 
-
-        .message-login
+        .login-div
             padding-top 10px
             text-align center
-            height 50px
-            .login-phone
+            position relative
+            font-size 14px
+            .login-input
                 width 80%
                 height 48px
                 padding-left 10px
                 border solid 1px #ddd
                 border-radius 4px
                 outline 0
-             /*.el-button*/
-             /*   color #FED06A*/
-             /*   border solid 1px #FED06A*/
-            .login-phone:focus
+             .mes-num
+                margin-top 15px
+             .login-mes-btn
+                 width: 80px
+                 height: 30px
+                 position absolute
+                 top 23%
+                 right 10%
+                 color #ccc
+            .login-input:focus
                 border solid 1px #FED06A
-
-
+        .login-btn-div
+            margin-top 30px
+            width: 100%
+            height 80px
+            display flex
+            justify-content center
+            .login-btn
+                text-align center
+                vertical-align center
+                display inline-block
+                background-color  #FED06A
+                width 83.5%
+                height 40px
+                border-radius 4px
+                color white
+                font-size 16px
+                line-height 40px
 </style>
