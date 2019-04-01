@@ -5,7 +5,7 @@
     </div>
      <div class="list-item-contain">
 
-         <div class="list-item" v-for="arr in Listarr">
+         <div class="list-item" v-for="(arr,key) in Listarr" :key="key">
              <div class="item-icon">
                  <i class="iconfont " :class="[arr.icon]"></i>
              </div>

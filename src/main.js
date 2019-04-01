@@ -2,10 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index'
 // import store from './store/index'
-// import {Button,Checkbox} from 'element-ui';
+import {Button,Input} from 'element-ui';
 //
-// Vue.component(Button.name,Button)
-// Vue.component(Checkbox.name,Checkbox)
+Vue.component(Button.name,Button)
+Vue.component(Input.name,Input)
 
 // import store from './store'
 
