@@ -13,20 +13,22 @@
 
         <section class="user-login">
             <div class="login-select">
-                <div class="select-left" :class="[loginMethod ? swithCss : '']" @click="loginSwith">
+                <div class="select-left" :class="[loginMethod ? switchCss : '']" @click="loginSwitch">
                   短信登录
                 </div>
-                <div class="select-right" :class="[!loginMethod ? swithCss : '']" @click="loginSwith">
+                <div class="select-right" :class="[!loginMethod ? switchCss : '']" @click="loginSwitch">
                密码登录
                 </div>
             </div>
             <div v-if="loginMethod" class="login-div" >
-                <input class="login-input" type="text"  placeholder="手机号" />
-                <div class="login-mes-btn" @click="btnClick">{{btnText}}</div>
+                <input class="login-input" type="text" v-model="phone" placeholder="手机号" />
+                <button class="login-mes-btn" :disabled="!isRight" :class="{right_num:isRight}" @click="btnClick">
+                    {{ time>0?`在${this.time}秒重试`:'获取验证码'}}
+                </button>
                 <input class="login-input mes-num" type="text"  placeholder="验证码" />
             </div>
 
-            <div v-else="!loginMethod" class="login-div" >
+            <div v-else class="login-div" >
                 <input class="login-input" type="text"  placeholder="手机号" />
                 <input class="login-input mes-num" type="text"  placeholder="密码" />
             </div>
@@ -54,26 +56,31 @@
               isShow:false,
               btnText:"获取验证码",
               loginMethod:true,
-              swithCss:'login-switch'
+              switchCss:'login-switch',
+              phone:'',
+              time:0
           }
+        },
+        computed:{
+            isRight(){
+             return /^1\d{10}$/.test(this.phone)
+            },
         },
         methods:{
             btnClick(){
-                let time = 59;
-                this.isShow = true;
-                this.btnText = `在${time}秒重试`;
+                this.time = 60;
+                this.phone+=' ';
                 let set = setInterval(()=>{
-                    time--;
-                   this.btnText = `在${time}秒重试`;
+                    this.time--;
+                    if (this.time<=0){
+                        clearInterval(set);
+                        this.phone=this.phone.trim()
+                    }
                 }, 1000);
-                setTimeout(()=>{
-                    this.btnText='重新发送';
-                    this.isShow = false;
-                    clearInterval(set);
-                }, 59000);
+
             },
 
-            loginSwith(){
+            loginSwitch(){
                 this.loginMethod = !this.loginMethod
             },
 
@@ -139,12 +146,16 @@
              .mes-num
                 margin-top 15px
              .login-mes-btn
-                 width: 80px
+                 width: 90px
                  height: 30px
+                 font-size 1em
                  position absolute
-                 top 23%
+                 top 18%
                  right 10%
                  color #ccc
+                 &.right_num
+                    color black
+
             .login-input:focus
                 border solid 1px #FED06A
         .login-btn-div
