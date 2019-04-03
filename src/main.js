@@ -2,10 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index'
 // import store from './store/index'
-import {Button,Input} from 'element-ui';
-//
+import {Button} from 'mand-mobile';
+import { ScrollView, ScrollViewMore } from 'mand-mobile'
+Vue.component(ScrollViewMore.name, ScrollViewMore)
+Vue.component(ScrollView.name, ScrollView)
 Vue.component(Button.name,Button)
-Vue.component(Input.name,Input)
+
 
 // import store from './store'
 
