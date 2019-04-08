@@ -150,9 +150,12 @@
                  height: 30px
                  font-size 1em
                  position absolute
-                 top 18%
+                 top 17%
                  right 10%
                  color #ccc
+                 outline none
+                 border 0
+                 background-color transparent
                  &.right_num
                     color black
 

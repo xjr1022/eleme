@@ -16,7 +16,7 @@
                 <!-- slides -->
                 <swiper-slide class="swiper1">
 
-                    <div class="swiper-item">
+                    <div class="swiper-item" v-for="i in swiperData1">
                         <div>
                             <img src="./images/nav/1.jpg" alt="">
                         </div>
@@ -26,24 +26,13 @@
 
                 </swiper-slide>
                 <swiper-slide class="swiper2">
-                    <div class="swiper-item">
+                    <div class="swiper-item" v-for="i in swiperData1">
                         <div>
                             <img src="./images/nav/1.jpg" alt="">
                         </div>
                         <span>特价早餐</span>
                     </div>
-                    <div class="swiper-item">
-                        <div>
-                            <img src="./images/nav/1.jpg" alt="">
-                        </div>
-                        <span>特价早餐</span>
-                    </div>
-                    <div class="swiper-item">
-                        <div>
-                            <img src="./images/nav/1.jpg" alt="">
-                        </div>
-                        <span>特价早餐</span>
-                    </div>
+
                 </swiper-slide>
 
                 <!-- Optional controls -->
@@ -58,19 +47,23 @@
 
                     <div class="scroll-view-item">
                         <img src="./images/m.jpeg" class="scroll-img" alt="">
-                        <div class="scroll-section">
-                            <div class="scroll-section-one">
-                                <span class="one-left">麻辣香锅</span>
-                            </div>
-                            <div class="scroll-section-two">
-                                <div class="scroll-start"></div>
-                            </div>
-                            <div class="scroll-section-three">
 
+                        <div class="scroll-section">
+                            <div class="scroll-section-item">
+                                <span class="one-name">麻辣香锅</span>
                             </div>
-                            <div class="scroll-section-four"></div>
+                            <div class="scroll-section-item">
+                                <span class="two-star"></span>
+                                <span class="two-grade">4.5</span>
+                                <span class="two-sale">月售731</span>
+                            </div>
+                            <div class="scroll-section-item">
+                            <span class="three-type">南湖区西式快餐口碑第6名</span>
+                            </div>
+                            <div class="scroll-section-item">
+                                <span class="four-discount">&nbsp;26减15&nbsp;</span>
+                            </div>
                         </div>
-                        <div class="scroll-section-five"></div>
                     </div>
                 </div>
                 <md-scroll-view-more slot="more" :is-finished="isFinished">
@@ -89,14 +82,12 @@
     import HeaderTop from '../../components/HeaderTop/HearderTop'
     import 'swiper/dist/css/swiper.css'
     import {swiper,swiperSlide} from 'vue-awesome-swiper'
-    import ScrollView from '../../components/ScrollView/ScrollView'
     export default {
         name: "Home",
         components:{
             HeaderTop,
             swiper,
             swiperSlide,
-            ScrollView
         },
         data() {
             return {
@@ -109,6 +100,7 @@
                 },
                 list: 10,
                 isFinished: false,
+                swiperData1:8,
             }
         },
         methods: {
@@ -175,7 +167,6 @@ nav
     margin-top 15px
     .scroll-view-item
         width: 100%
-        height 80px
         padding 0 10px
         border-bottom .5px solid #efefef
         display flex
@@ -184,24 +175,50 @@ nav
             flex-grow 1
             width: auto;
             height: auto;
-            max-width: 75%;
-            max-height: 75%;
+            max-width: 80px;
+            max-height: 70px;
             padding 10px 0
     .scroll-section
+            margin-left 10px
             flex-grow 5
             width 100%
             height 100%
             display flex
             flex-direction column
-            .scroll-section-one
-                .one-left
-                    font-size 16px
-            .scroll-section-two
-                .scroll-start
+            font-size 12px
+            .scroll-section-item
+                margin-top 4px
+                .one-name
+                    font-size 1.4em
+                .two-star
+                    display inline-block
                     width: 15px
                     height: 15px
                     bg-image('./images/stars/star24_on')
-                    background-size 15px 15px
+                    background-size 10px 10px
                     background-repeat no-repeat
+                    background-position-y 5px
+                .two-grade
+                    display inline-block
+                    color #FD9827
+                .two-sale
+                    color #5d5d5d
+                    display inline-block
+                    margin-left 10px
+
+                .three-type
+                    display inline-block
+                    background-color #ffe8ea
+                    border solid 3px #ffe8ea
+                    border-radius 2px
+                    font-size 9px
+                    color #ff6201
+
+                .four-discount
+                    color red
+                    display inline-block
+                    border solid 0.1px red
+                    height 18px
+                    line-height 16px
 
 </style>
